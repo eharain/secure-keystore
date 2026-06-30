@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Runtime keystore data and secrets — never commit these.
+# (Anchored to repo root so the sample files under examples/ are still tracked.)
+.keystore/
+.keystore-target/
+/keys.txt
+/keys.env
+/keys.json
+*.skb
+*-backup-*.tar
+backups/
+
+# Encrypted store files generated at runtime
+.keystore/**/*.enc
+
+# Test artifacts
+test-temp/
+
+# npm auth (token is read from the NPM_TOKEN environment variable)
+.npmrc
+
+# Logs / OS files
+*.log
+.DS_Store
+Thumbs.db

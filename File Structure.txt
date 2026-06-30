@@ -1,0 +1,29 @@
+secure-keystore/
+├── index.js                  # Package entry point — exports the SecureKeystore class
+├── package.json              # npm metadata; `bin.secure` -> lib/cli.js
+├── readme.md                 # Main documentation (features, install, CLI, API, security model)
+├── usage.md                  # Usage & deployment walk-through
+├── File Structure.txt        # This file
+│
+├── lib/
+│   ├── SecureKeystore.js     # Core library: secure / get / getAll / set / deleteKey /
+│   │                         #   listStores / listKeys / getStoreInfo /
+│   │                         #   exportStore / importStore / deleteStore
+│   └── cli.js                # Command-line interface (the `secure` command)
+│
+├── examples/
+│   ├── basic-usage.js        # Minimal programmatic example
+│   ├── deployment.js         # KeystoreDeployer: export/import/transfer helper
+│   ├── keys.txt              # Sample input — colon format (master:... first line)
+│   ├── keys.env              # Sample input — dotenv format (master=...)
+│   └── keys.json             # Sample input — JSON object ("master" property)
+│
+└── test/
+    └── example-test.js       # Smoke tests: secure/get/set/list/export/import/delete
+
+Generated at runtime (not committed):
+└── .keystore/
+    ├── index.json            # Catalog of stores (names + key names, no secrets)
+    └── <store>/
+        ├── master.json       # Store metadata + encrypted master key
+        └── <key>-<hash>.enc  # One AES-256-GCM encrypted file per value
