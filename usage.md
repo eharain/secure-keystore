@@ -1,7 +1,7 @@
 # SecureKeystore — Usage & Deployment Guide
 
 A complete walk-through of securing secrets, deploying them, and reading them at
-runtime. CLI examples assume a global install (`npm install -g secure-keystore`);
+runtime. CLI examples assume a global install (`npm install -g secure-keystore-js`);
 otherwise replace `secure` with `node lib/cli.js`.
 
 ## Phase 1 — Initial setup (developer)
@@ -61,7 +61,7 @@ you can still encrypt the bundle again for transit (e.g. with `openssl`).
 
 ```javascript
 // server.js
-const SecureKeystore = require('secure-keystore');
+const SecureKeystore = require('secure-keystore-js');
 
 const store = new SecureKeystore();
 const userKey = process.env.USER_KEY; // never hardcode

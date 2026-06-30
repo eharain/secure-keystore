@@ -19,12 +19,12 @@ turn unlocks each individual value.
 ## Installation
 
 ```bash
-npm install secure-keystore
+npm install secure-keystore-js
 ```
 
-Installing globally (`npm install -g secure-keystore`) exposes the `secure`
+Installing globally (`npm install -g secure-keystore-js`) exposes the `secure`
 command. Without a global install you can run the CLI directly with
-`node node_modules/secure-keystore/lib/cli.js …` (or `node lib/cli.js …` from a
+`node node_modules/secure-keystore-js/lib/cli.js …` (or `node lib/cli.js …` from a
 clone of this repo).
 
 ## Quick start
@@ -99,7 +99,7 @@ secure --help
 ## API
 
 ```javascript
-const SecureKeystore = require('secure-keystore');
+const SecureKeystore = require('secure-keystore-js');
 
 const store = new SecureKeystore();        // keystore lives in ./.keystore
 const userKey = process.env.USER_KEY;      // never hardcode this

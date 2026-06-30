@@ -1,5 +1,5 @@
 {
-  "name": "secure-keystore",
+  "name": "secure-keystore-js",
   "version": "1.0.0",
   "description": "Secure key-value store with two-layer encryption for Node.js",
   "main": "index.js",
