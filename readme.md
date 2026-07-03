@@ -113,6 +113,31 @@ const all = store.getAll(userKey, 'production');
 ### `new SecureKeystore(options)`
 - `options.keystoreDir` — directory the keystore is stored in (default: `./.keystore`).
 
+### Stateless value encryption (no disk store)
+
+When your app already has its own storage (a database, a config store) and you
+only want a value encrypted at rest, use the static helpers — there is no store
+or master file, just a user key:
+
+```javascript
+const SecureKeystore = require('secure-keystore-js');
+
+const userKey = process.env.USER_KEY;                 // never hardcode
+const token = SecureKeystore.encryptValue('sk_live_abc123', userKey);
+// -> "skv1:<salt>:<iv>:<authTag>:<ciphertext>"  (safe to store anywhere)
+
+const secret = SecureKeystore.decryptValue(token, userKey);   // 'sk_live_abc123'
+```
+
+- **`SecureKeystore.encryptValue(plaintext, userKey)`** → encrypted token string.
+  Each call uses a fresh random salt + IV (AES-256-GCM, PBKDF2-SHA256 100k). A
+  `null`/`undefined`/`''` input is returned unchanged.
+- **`SecureKeystore.decryptValue(token, userKey)`** → plaintext. A value that is
+  not an `skv1:` token is returned unchanged (so you can decrypt-if-encrypted);
+  a tampered token or wrong `userKey` throws.
+
+Both are also available as instance methods (`store.encryptValue(...)`).
+
 ### `secure(inputFile, userKey, storeName?)`
 Encrypts a key-value file. The input format is chosen by file extension:
 
