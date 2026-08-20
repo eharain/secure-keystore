@@ -1,0 +1,23 @@
+{
+  "stores": {
+    "basic": {
+      "version": "3.0",
+      "created": "2026-08-19T19:59:53.161Z",
+      "totalKeys": 10,
+      "keys": [
+        "api_key",
+        "empty",
+        "colons",
+        "delimited",
+        "unicode",
+        "newlines",
+        "json_ish",
+        "long",
+        "looks_like_token",
+        "spaces"
+      ],
+      "sourceFile": "basic-input.env"
+    }
+  },
+  "updated": "2026-08-19T19:59:53.377Z"
+}

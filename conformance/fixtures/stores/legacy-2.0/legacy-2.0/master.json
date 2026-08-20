@@ -1,0 +1,27 @@
+{
+  "version": "2.0",
+  "created": "2026-01-01T00:00:00.000Z",
+  "salt": "75b7344e27736648d903543a09c85e5921df08626e5c9c142697393e0b0b4cb1",
+  "iterations": 10000,
+  "master": {
+    "iv": "9fdcd187866d6e92cb423be6d0f4cda1",
+    "authTag": "8f83e66b032a4ce096edb0d2b050e3d0",
+    "data": "406d6b11b8df993bfaad0db8b5f415d4adbde88b46fd"
+  },
+  "entries": [
+    {
+      "key": "api_key",
+      "file": "api_key-2e9bc6c9.enc"
+    },
+    {
+      "key": "jwt_secret",
+      "file": "jwt_secret-e88040e7.enc"
+    },
+    {
+      "key": "unicode",
+      "file": "unicode-2fcf76a4.enc"
+    }
+  ],
+  "sourceFile": "legacy.env",
+  "totalKeys": 3
+}

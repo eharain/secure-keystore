@@ -1,0 +1,20 @@
+{
+  "version": "3.0",
+  "created": "2026-08-19T19:59:53.629Z",
+  "salt": "c473938448c10fd2c03bdb3b3ecf7346ad53247fe0c3eb219b6085cad4680570",
+  "iterations": 10000,
+  "master": {
+    "iv": "9f96a882c8573e9fdc6403bf",
+    "authTag": "e9c35f574bee33122ff99a1e5f35d230",
+    "data": "bd7d14c50f323379e4f8a124d8a1570d37ee77ed6c78"
+  },
+  "entries": [
+    {
+      "key": "only_key",
+      "file": "only_key-71ee86a2.enc"
+    }
+  ],
+  "sourceFile": "single-input.env",
+  "totalKeys": 1,
+  "updated": "2026-08-19T19:59:53.631Z"
+}

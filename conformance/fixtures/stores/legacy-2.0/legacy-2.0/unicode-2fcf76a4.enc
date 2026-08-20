@@ -1,0 +1,9 @@
+{
+  "salt": "3144957b58d5e57c6418535a302d6f9de9c2bb6f7f5a1194d176377dbcbcb1df",
+  "iterations": 10000,
+  "data": {
+    "iv": "7d9aa69c96f6ea75e329c72fcde1ec53",
+    "authTag": "7f8f19bd3eec59b94b1b2ee588a9183c",
+    "data": "e94435fe98fd6287163552103fd2d91e81"
+  }
+}

@@ -1,0 +1,271 @@
+{
+  "description": "Fixtures every secure-keystore implementation must read identically. See conformance/README.md.",
+  "generatedBy": "@tech-style/secure-keystore 3.0.0 (JavaScript)",
+  "storeFormat": "3.0",
+  "userKey": "conformance-user-key-!@#-£€-🔐",
+  "masterKey": "conformance-master-key",
+  "iterations": 10000,
+  "stores": [
+    {
+      "name": "basic",
+      "path": "stores/basic/basic",
+      "keystorePath": "stores/basic",
+      "format": "3.0",
+      "note": "every awkward value shape",
+      "expected": {
+        "api_key": "sk_live_abc123",
+        "empty": "",
+        "colons": ":::",
+        "delimited": "a:b:c:d:e:f",
+        "unicode": "🔐 ключ ñ 日本語",
+        "newlines": "line one\nline two\r\nline three",
+        "json_ish": "{\"nested\":{\"a\":[1,2,3]},\"b\":null}",
+        "long": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "looks_like_token": "skv2:not:really:a:token:at:all",
+        "spaces": "  leading and trailing  "
+      }
+    },
+    {
+      "name": "awkward-keys",
+      "path": "stores/awkward-keys/awkward-keys",
+      "keystorePath": "stores/awkward-keys",
+      "format": "3.0",
+      "note": "key names that must survive sanitising without colliding",
+      "expected": {
+        "a/b": "slash",
+        "a_b": "underscore - must not collide with a/b",
+        "../escape": "traversal",
+        "ключ": "unicode key name",
+        "UPPER.case-mixed_123": "punctuation",
+        "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk": "over the stem limit"
+      }
+    },
+    {
+      "name": "legacy-2.0",
+      "path": "stores/legacy-2.0/legacy-2.0",
+      "keystorePath": "stores/legacy-2.0",
+      "format": "2.0",
+      "note": "the old format - 16-byte IV, no AAD, PBKDF2 per value",
+      "expected": {
+        "api_key": "sk_legacy_abc",
+        "jwt_secret": "legacy_jwt",
+        "unicode": "🔐 старый"
+      }
+    },
+    {
+      "name": "single",
+      "path": "stores/single/single",
+      "keystorePath": "stores/single",
+      "format": "3.0",
+      "note": "one key, nothing else",
+      "expected": {
+        "only_key": "only_value"
+      }
+    }
+  ],
+  "tokens": [
+    {
+      "name": "api_key",
+      "version": "skv2",
+      "token": "skv2:10000:319caef5f1abe9094953038ac096b16f:a58be90d3a9f3250a54fb38b:7c0edcaee1da7ad012998e4c36f0a8d7:1d091712dcdfdab6d6801167f849",
+      "expected": "sk_live_abc123"
+    },
+    {
+      "name": "colons",
+      "version": "skv2",
+      "token": "skv2:10000:9e751b0aaaea64b637bb136957d61a3c:a3815485cbdb5bf281f612eb:5b5b9d283c1e79ced68d187dcda20268:04a41b",
+      "expected": ":::"
+    },
+    {
+      "name": "delimited",
+      "version": "skv2",
+      "token": "skv2:10000:65e8079a1537a9b517aa0130de20acd0:6748085113ed34293a228e47:679c0fa0460435b60ded9ec4108a701a:d0589514d0996e33d88c4a",
+      "expected": "a:b:c:d:e:f"
+    },
+    {
+      "name": "unicode",
+      "version": "skv2",
+      "token": "skv2:10000:9ddfadbf4f934d44be896c546bf68c8a:7b448b08cf726f1508d1c5aa:8e077f865c3b0ae920b54be654526700:211753a7b316083f9d1763a004f5c1b53571821059d983c2058a",
+      "expected": "🔐 ключ ñ 日本語"
+    },
+    {
+      "name": "newlines",
+      "version": "skv2",
+      "token": "skv2:10000:1a909c8ab3621c8be1ba0a068ea64c9a:819aa7ef9fc9f5ac10583fe7:0f0aced4fe1fa1aa7f4d5ac821e2e2d6:9f2d091f792849a2a357d370d1a6f61e989ab43090cf83462eaa873a73",
+      "expected": "line one\nline two\r\nline three"
+    },
+    {
+      "name": "json_ish",
+      "version": "skv2",
+      "token": "skv2:10000:7541357edf287952e40b40191f121cbf:2cabad2037fdb118659b2dd0:be3503117d0dc3fa7a2a82b1c3990e80:bd70487e95e017b656d01fdba196b228d2ffdc1064113d9608e14937421e3603d6",
+      "expected": "{\"nested\":{\"a\":[1,2,3]},\"b\":null}"
+    },
+    {
+      "name": "long",
+      "version": "skv2",
+      "token": "skv2:10000:e6fb5cc89ee172013218cdd94bd4af42:ddbe14689f1b4186b4260aa5:e88b98bcb2f37e6f52115c000640a189:42d25125e5254620e6fc0c5f9cdf130185cd9c6dec78ac1f0660d9598ad34078841b746f7b08276810d6fa7329f55da9a33b763e2b07d0f3dddffdef71d7c1dcbe1806788c4990c4a76990c44b27c82ee351ae753fd9cb977167b0c88eec9eacd3728d20a27363e82e85f29639b134d42849c1c230ad730dcc236c4f6b565f6699177f81a20551a27c4442af9144f9b3b93f576aff78dff0dc40ada2358bb4cd19606d56bef73ce39049fee14c366d7d3c772768f7b802caf81f0edd752376c94de4a67222e34c57c52144512f6004bc3ba9f6f802077175a1c54036c092b052d1072c9a73363d5a0715435298a963c4aa6bb3236e78ab241c31bf3126e3e7d2cb8e36211963eedf835fb0afd96c473cf878e907bebead338d799ff74ece085db4fa96365f300f2801ed2a6b5f6af6ec072b9a2fa7a8a0c3e7b2ceffc9a9188fd144770d433af5b07727e15016b54a0259f6bcb73d28470199a77806139f772858d2442d47d7e1bfe3ac5ecf75a76c4fcb3e672ea8e21f370d80cd8364486be4da6029c9b2b85add687a9ac7a0db94057501adf53aae16c6fdcd91c9b111a66e396695341b924aa2d6dcf39231f5ad3f70fa5b2e19bb9c88a7cce0d5860d0f4ac3a5f924b2c9918fb9da8dfb799f88695dad5ededcd71957c9aa6c22e2647536e22c127e3dc5e9a60d9c3d166f314a0c334d0bbe3432ce1a052111248201ad27fc755f79eb6ce3e9a1974fddd39ba30fcaf42c07fb0952d7dda463003e8b3167bfdbb5658d765a6ec2a68dc68e3cf2c368549fb53fccc379f3f60c49e73fc550cf64186cac3a5590cda92b0357fbdcfdc3936ec9426c372cba0c32c82783f457bdd0d6403a67213d737d4ab5aa5152654fb1fdab5e3fa8962b466c095d8acc762556cea5b6bb44810a427307b79ce0041d6fec034f54f5702aca8ee79dd72611a77500c168d354703f64e10afde22e6cb8c6e9c2c88d777891f2eb5295d0d432e5d7984a17b9c29e0e568990d2ae85fcfa02fe2d23abd97931d0cb401f3608eb00e7f23513e15737fa9cd498a88d4a3a3394bbe12f82ff8dc696380673f0be0859895cb5159db4138cd273c3cf2ee4254a3ed8c3b452f23ddea52d5036d154d974cc81c8b6ba63784ee8126d8ff009bd721068c271f3058f45cb93561e6eef0fd0242f251ec5d11451e223538825d43f7241a9a43ba77d58edb10ce6294bb04c2c2590b9c07f474d2654265c1d8cdb56003cf922bb64c4e7a7cf83b372c6ba68e980af280d7d1323d55e3908d18d7884b3963595c0f0d294fa788a6bcac4a3addfd36bc17b876da27581d52c762302789c7957973a4ac16e955ced710c7362965e5e4da00bc628abf650e484dbc5bbfb66997164a9e65c31268588947cddb365c587ef4d7a4d475629994de9ccaf0b35b8f750301d00845336b0ac39a3f353747c876c755af159c1e6e7b8b312913a9d9244b47d1245f7a7dc0898eaf93d61fc57567c446802cb95df2f712a555c5668b2f6063a5db45f9fe25c1a047d3012eea62422189ef945279300415f42b825a7660fdee8f96d2eb71e706900206f962b64ebbc6b399edde08dc0163ce375c2ed621a6fb5fb9b38751568dea9a99453605dc2334d6bc1960b2f74d068d4ae905fd32f847b909c0fd7e5a7a399d5b8403a2197141ddb48f644f04a1871ee14626b461acd0277ff02390498ab2898ac1e9fe05eec1a8521de360ff1fb5a30a18942b576d78d2cdc8b41036b7628e0791785ea420bc5807f9cf0904ee4ee198fc0fc4b1f6d05478d0d082e002392f1bc86b5db9176fdfb35e1b5a71a54a7458de8ae073378fbf62768b981a28d8d9252b9fda031dba1699c3646d48eec21af75edaf9d78b123556b94e85c691fef3e4477db728900d3260f68f6844c8db6a4ae1161e387ab7242cc63ce16b070cc461493d21b8c97cb9348b324970508fa42f3858b20e9dd0173243a01393e9dae9be37102f0e03530751962df045f194d5ab48aeccd0719a8d59f8c3447136542c3ddbb506dbabb23b33363d62701b977fed7f1ae635c06fdf843e841e510de23c08fcface8d7a7f851c081d734935f6c47a858b74e4a0042946b0653589e63a21a751131777ef8145e39c3451493f5d0cf49adc4e69282de9937f1e348f711a83861830cce2132dbf127d04627adbfac9282c451febe919ae688ce5638794f1bb7c7a9700e6ac101b8370b1bc5ac1936dc2b23a99c92a9ce80959f2f94512dcf3e914e3adcd30f3520d9972557c56c102f0aed81c7d4bb6af310e8695e43a8b90d563399e43d5e0e44515578ebc8b03f3c0405a151a230afb002344c8ccad679b30dabbbce74e1792987a04379644212b759988473bc767bf8a2cdde8e291e67ca3c3c42c8dc70d3331a3cda335394248eb7ec33438deecf3aed244615a7571c0f0f7499c85fe2789693cc79e454c4907789fa99bccf60812cdade798753451f42c79753c076af5b498bf81e8a91f440aa15e3350950dc7d0ddfd427252203ec04655042bcf84a9e028c2211b4c8fd7e4c955d833d5ad2e106a7dd724c87d32e22cce12dcce9dda9d1adb6dc0b4de79f4c9b9b856f923a6cb5402567e59ebebb5f89aedc938976e54b2a3783f9a9674c214eea96e1f636398e332e0cb90c773a1f95355a8c670fd2eef5af931fb29df0fc0bb265efd92f802daf2253317b48057bee86b4e30440d0f4dedfb5276daeb35793df9b5a60a0ea04ee7aad42fbdd7add68c187b4bfe6bd2b42ce7b4e5fcbdddd5291e0268dfd298b2ec8a70cc87198597081a9cca38e91aad199347c4f72668f792f0ba564dcb5149a62f9a2d659a8e09d25838e8a50bb4e71ad41edd66b01a0d20681ce3dfa85069651de58fafb6f2ff28fc992e136997431e68b92782594bbab33802e9b36dcaf99e1a8b5fb2f31833f335b893ccc1f97dd582202ce79ee258da93c41e771a8975f42216e0243ee41f13348e2d74bc3b164024ad323be6dc0d7b7a57e20cf8f4af5fad9058e38e34f6889a8ad1202dd251ad93751f6960a83dbfb02a792cb95cde4acdf1da449589ed050e86c1162b99b904756e55b73f8bcf521c179ac346f8ac888c964afba3b436f770c77d74df929a79760ce61a36f366ef3de11d9e7d970e482ef31ade16b73d6a4b8b9c87f5453a974f31e8ff63b28ed44b163ebd060e43855a0b3fa13dd38a66dc5709108735ad80ffd6cfe6527140ca94ece9e907dcbbc75ce5630546686509981a680aa04f40b946b1267534598d7dc26d75a9766f691e50a3c250bfe369667bb687ba70edcccaf128304f3192764b293185f992261a5951ecaf65b961eb720818c4b717e6fb0b0d02591e20d2ef619e6ebb461c68777c026558b34ac154c876cae53e46300513c365b877c21a907d8c1e6da5132463b85e44aa67cf37cc3c06016ca48d5e1d9673f4973f1308b189f0c1ad428b6e675cfbca2d73c45047963f9a59485c0a8dc6e65366322d076eec180336c34e16f932e40c2717aa4988600d7e57c445b191a427d77c63cee3a9f2123baf0e04c8b5e5f15f7bd7f481d0a36a9f2ab8684c15b855b560f48066533a6a68b312340f5d80a304c8d7e4289415b87eb6f9fce0a1ce88a402b8f06743ad8eebdd9ee7df3ba171047b7b31dab6388ef8b960faecc76308e1d1f179a6c4482a31d1c869708f170ba2df3bc35767f2bfcce76ff8f2ae765e7c1dc9ef09c49779e5da367d674bac534dedb80bb460f7b84abc7df7e0a3f43f0f4a04d2837ae78bd5cb6972bb71f660cff9eeaf06fb73711a4abf69eb34585de2716e80948ba18a3d3ec09846a08a91ea2898f4aa8906dae51ffbb91a94e9ae08d0f03e109ee4cbfd14ac0d86ea1cf65535dc03c4006f737d583da281675cc79fd4d01730812e9b969a886eaa20d8e9d97857851ba105f9a9054d53204c0bfd61dfba8512172a7895cf3fb75b4e32d8e3feaf118705e67649a948e00102d9ecce9e9fae7ae1e2f03e06eea1795c556637f011be7232bbbc2cd2a8c382586b3b133c229696d3ded5629b94146e4d3bea35709e0588e11c9d4d8f3955f0024dc8a599fed517d2787310daa9ca3be8e12102ea1ac45ff25b1988d2195ce5a508d5fc0af21b51f562277e3d97d9193723cf0e4c5e3da499044b2509711a41486acc30358e7da233bd6ee8daf3813d0c7f03714a875b4de2e2bbf71d4dd95fb6ddc70c243136f31bbb6155091ee94b37a00f54495492f053b620b2061bde8dfba59504e69037c9b7acaa65dad09ec0037ead7b55381c6d01f6258465d406c08a6718ddf6082784639a4a308ea8cb02a62e0f8bb8d54772b38c9ca5a480992b208f237dc3c01d664b4e4ef5f7d1bc7a8e38e1434a1491ed3b1fbb3c3e8dd02b351f50f2a4230a8491a5ee5578c485ef941e792bf01b822a8552f79e5dc1908332dc8047354221efe16e32d03c0cfdb097fe4f8c3fde8e36dc0b90fee5f8f8163f184b727293bcd8b829066ed38429812dc96990f4de9957251a46827d3a12176cfe2386d5ee85119ac2161d71891a8b1130ff6db568e10d0147d7bf86b2807937fbba742ab1920516d85f14292a4d12a5026d33778a613f9de989b7e121e270c376fda988a562ace37f4359d068b2296919db011a13bee650c7487397c12033678d5f59c14092d41b69a933dbbab0e1d73857501e4cf2d7e9824ada772e22a2f80cadd860ddd165bcade6855f97f142f804c6ec43661048f836f1e5bc56152374a64345397467d3f50db570cf9207d5033ae2a1cfc08aa038ac941afb5fd9dbfbed10402e12c4279e3432e47d7986e694ca3c2ce72a1cf810e540be9048939693615f4f224bfa3d427c5894960a902f68b1806b34c8d2665626e7e12f09836691b23b262cffc80a9f42da5da8652dfa8cea3934120650208dd3df46b2330401967a7702a0c355c26fe36c321d31c9b92fc5bd4e67a47331c47a0b45dc6a1bba81c2f16845ea94cf59e33f786c77a07ee2d9aebc7ca9e911e4c7fce37d07ac535b05791d18366946e7a04a1c7f6d506fc05dc22680833ad71ee8231b395d5d0891a201ddec938b1e08e9ad118ae07093722244ffa95dec657615b2a469e50d449e14aba9cce8f144ab9165f577dd4a206e006c4de6165c47f41eae3c7fb26866926fbba7342367c61adb34b4edd2e81246d5a6e8a7b5e294194e56e9a842809523ea319a1039e020b0cc24c02915a89b0f221430ba68b863048911368e8235ac283c0bdd25bfca941bb96eb65017a37b939b9913c4b23826519c4bb1dac915706efd5eee16e93c3d6ea9875c52a86b4d2af75c2fcbea8cdb6010c10b55da18a18bfb605aa97935dac247e8875be7758b2527611f2fb1994583ad6bb3183a0ec21ee340ff1d673efddce81839367620042869da4d05f785c8044f0dd5752c8fd92d62127e82b51d246beb4bae18b0f449d100d24f88fc609af83c3f40249c91736d2fb11b6b933b093d7126ea05374ee57d4a709e8a5ea89073281c803e65e5103ace93220dc4c4b6b04600a0df73d91e69d7c9a05fafcb71da55e8e83c374ad5c0428a002f3372a64e74b7cdf2283c2de0249051ecf178221dea38dfdecb1d9cb0e755b1ee9c0057759b5538b21c9e07a805efb4148c0144cc12960b6691a8f45862e1cdf52847ada4c1e334fdb9171a1c793f2993d3e8a59e2deffa6764008fdbb52a3980f55ad3264b17ef800acaf416e5e04043859009e5a5a4d345cf34675afcc4aa95796d59510d4bcc7f45f1ea47e92ca6da2e1d136c9df6fec4e4b4afbdf4a60faccad44390514307b2bc117a75e1ed3d8710bba8a01d5f08e33aa33b60fdf0a50f1e9517849a69c8bbf13ffb9a89ccc5979bf8850db6bd77319009abdc16b1810e7c037d9c41c82af86fb76c36c7d2ab71af32bcad983100f4601139514d6f410f9e2db180aa2e2a9f243e844ea7694ef743a7432507ea4b28adb81458a25dce40fdc0f3d62211bcc263ada71480e2895029c46f5b7ffbdda03c2fc5fe5341419276c9637e7a0ef40ba4f4bb4ae42dcfb0762fd1f3da15df4ff2787df990daf84aec47ea44e3d71896375982d33d81b347d8fa8e25ea1cc1ceed2d66c579c5f36b8a966365eeffc24d63384b6bbb995b831f8d3995443f13c7a6d33eccff5fbe3811e1051ebbbefe91d55337d0a88ccac2a6df4e6a055502a8f290aa8d4681770919e38366285250aa526d1925f6be58744b76e806a3e1da678176e3cce3fb75a033eb58f0110e118657c9ec268c39d08846934981e6da0aee6890d09fe93d60659ffc4e8a5416e30a2791f555c5d678547ab76004a36fe5c17afdcef48c5e715ef1f266f343a04bab5ca6c7d019c88065efe684db864ed2993fd6c8cac52d3f865e95085b388e78c9bea1418acf00e48c31743c0ceef7013674786370ea008f4b41095b8530b6f559637bbd827271bea7b0fd0e72c9e76b436adace16afe5bc1d0a68e2746b6b069934ce9bfb9a5e1617530931284effa8c0d78671b591af1a4f3a279ec9e999bb14a85c2ab3916793aa96b38bb1e09171c3eb95bc43b2efb5e5bcc0807cffb34633f5259fde94055ffa9c93379f0fe208b593a243f9201b6da7cb25f04e168c4c9368e874d22700720efe942309d92d1cc3056f941c7425a040ebbf100593cdc8d7681d9676194d3a505935d676a337614937aaf0ee91ab4c15977cc5c54e8140eabb2973107538dcabfe2abaef58c20da04347bbdf1e77d4c959ba44e0d3064247161e31987e92ad7bf66c5d1799a4057ce7f6a754cc00c60402a9b5e8c5a7d60a79edc74ee729b69533e6d7b56befe7dc93c3026d72e520859262d03ef7600d95e2fa622453e17c9eb25bea1d19e0312cd97cf03ac1376400036c20a56cf39ea43fcdbb6cb8eea7edccc64229f18d1bf97eb7f9eb35509ef9eb4fc095c9cce035bf7d503017773970239439626d65d2b49949e601f0fd18f7e9df28b542a9bea06f8fadb9f60c59b2282309375ebf8b96a98c1adba8deb1840a4018622b6bbfa95ad2b081dd438aad626a68e8cf4b484601460f4547e82",
+      "expected": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "name": "looks_like_token",
+      "version": "skv2",
+      "token": "skv2:10000:92ff1eeb3d19a791e14ac7ed6cb108d5:331bf48f64ff9e8c29c637af:8ce5d53e0251642190611a544fac7d20:625de7a2dd16f3d749eee635f6cf2d501e68c008b37a2eee5474f748ddb9",
+      "expected": "skv2:not:really:a:token:at:all"
+    },
+    {
+      "name": "spaces",
+      "version": "skv2",
+      "token": "skv2:10000:d499cec2b472e42b623cf68a96ee2a98:18975cb790f46e2e72e18923:fc7340672f1710b3960049a0cd4284f3:0d14109cff1fe34ff43a57ed83a69f761783519b84dfdb6f",
+      "expected": "  leading and trailing  "
+    },
+    {
+      "name": "legacy-skv1",
+      "version": "skv1",
+      "token": "skv1:b9b068b352ed235de99ac30ed8d6332a:14e47393497501755c33ef4599ac937b:5d048ab4451b28b25e6e10b4ef82d928:92b2e8632ac43af317467c124bc92801986f8b8b",
+      "expected": "written_by_version_1",
+      "note": "16-byte salt and IV, 100000 rounds, no AAD - fixed by the skv1 layout"
+    },
+    {
+      "name": "passthrough-plain",
+      "version": null,
+      "token": "not encrypted at all",
+      "expected": "not encrypted at all"
+    },
+    {
+      "name": "passthrough-lookalike",
+      "version": null,
+      "token": "skv:almost",
+      "expected": "skv:almost"
+    }
+  ],
+  "bundles": [
+    {
+      "name": "basic",
+      "path": "bundles/basic.skb",
+      "importAs": "imported",
+      "expected": {
+        "api_key": "sk_live_abc123",
+        "empty": "",
+        "colons": ":::",
+        "delimited": "a:b:c:d:e:f",
+        "unicode": "🔐 ключ ñ 日本語",
+        "newlines": "line one\nline two\r\nline three",
+        "json_ish": "{\"nested\":{\"a\":[1,2,3]},\"b\":null}",
+        "long": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "looks_like_token": "skv2:not:really:a:token:at:all",
+        "spaces": "  leading and trailing  "
+      }
+    },
+    {
+      "name": "traversal",
+      "path": "bundles/traversal.skb",
+      "importAs": "traversal-target",
+      "expected": {
+        "api_key": "sk_live_abc123",
+        "empty": "",
+        "colons": ":::",
+        "delimited": "a:b:c:d:e:f",
+        "unicode": "🔐 ключ ñ 日本語",
+        "newlines": "line one\nline two\r\nline three",
+        "json_ish": "{\"nested\":{\"a\":[1,2,3]},\"b\":null}",
+        "long": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "looks_like_token": "skv2:not:really:a:token:at:all",
+        "spaces": "  leading and trailing  "
+      },
+      "mustNotCreate": [
+        "pwned.txt"
+      ],
+      "mustCreateInsideStore": [
+        "pwned.txt"
+      ],
+      "note": "every entry is reduced to its base name before writing"
+    }
+  ],
+  "refusals": {
+    "tokens": [
+      {
+        "name": "wrong-user-key",
+        "token": "skv2:10000:764018186faf55c7a996cf63b976bc6f:78c121dffe7869e0e54efa3f:246f81207c768a805869d633f36eb4e4:32638f5443b7",
+        "userKey": "the-wrong-key",
+        "code": "BAD_USER_KEY"
+      },
+      {
+        "name": "tampered-ciphertext",
+        "token": "skv2:10000:764018186faf55c7a996cf63b976bc6f:78c121dffe7869e0e54efa3f:246f81207c768a805869d633f36eb4e4:a2638f5443b7",
+        "userKey": "conformance-user-key-!@#-£€-🔐",
+        "code": "BAD_USER_KEY"
+      },
+      {
+        "name": "tampered-auth-tag",
+        "token": "skv2:10000:764018186faf55c7a996cf63b976bc6f:78c121dffe7869e0e54efa3f:a46f81207c768a805869d633f36eb4e4:32638f5443b7",
+        "userKey": "conformance-user-key-!@#-£€-🔐",
+        "code": "BAD_USER_KEY"
+      },
+      {
+        "name": "edited-iteration-count",
+        "token": "skv2:10001:764018186faf55c7a996cf63b976bc6f:78c121dffe7869e0e54efa3f:246f81207c768a805869d633f36eb4e4:32638f5443b7",
+        "userKey": "conformance-user-key-!@#-£€-🔐",
+        "code": "BAD_USER_KEY"
+      },
+      {
+        "name": "too-few-fields",
+        "token": "skv2:10000:aabb:ccdd",
+        "userKey": "conformance-user-key-!@#-£€-🔐",
+        "code": "BAD_TOKEN"
+      },
+      {
+        "name": "too-many-fields",
+        "token": "skv2:10000:764018186faf55c7a996cf63b976bc6f:78c121dffe7869e0e54efa3f:246f81207c768a805869d633f36eb4e4:32638f5443b7:extra",
+        "userKey": "conformance-user-key-!@#-£€-🔐",
+        "code": "BAD_TOKEN"
+      },
+      {
+        "name": "non-numeric-count",
+        "token": "skv2:lots:aa:bb:cc:dd",
+        "userKey": "conformance-user-key-!@#-£€-🔐",
+        "code": "BAD_TOKEN"
+      },
+      {
+        "name": "skv1-too-few-fields",
+        "token": "skv1:aa:bb",
+        "userKey": "conformance-user-key-!@#-£€-🔐",
+        "code": "BAD_TOKEN"
+      }
+    ],
+    "bundles": [
+      {
+        "name": "not-json",
+        "path": "bundles/refuse-not-json.skb",
+        "code": "BAD_BACKUP",
+        "note": "unparseable"
+      },
+      {
+        "name": "not-a-bundle",
+        "path": "bundles/refuse-not-a-bundle.skb",
+        "code": "BAD_BACKUP",
+        "note": "JSON, but not ours"
+      },
+      {
+        "name": "no-master",
+        "path": "bundles/refuse-no-master.skb",
+        "code": "BAD_BACKUP",
+        "note": "no master.json"
+      },
+      {
+        "name": "future-version",
+        "path": "bundles/refuse-future-version.skb",
+        "code": "UNSUPPORTED_FORMAT",
+        "note": "a bundle format from the future"
+      }
+    ],
+    "stores": [
+      {
+        "name": "future-format",
+        "keystorePath": "stores/future-format",
+        "store": "future-format",
+        "code": "UNSUPPORTED_FORMAT",
+        "note": "a major version from the future must be refused, not partly read"
+      }
+    ]
+  }
+}

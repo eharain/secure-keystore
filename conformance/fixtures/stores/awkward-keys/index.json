@@ -1,0 +1,19 @@
+{
+  "stores": {
+    "awkward-keys": {
+      "version": "3.0",
+      "created": "2026-08-19T19:59:53.407Z",
+      "totalKeys": 6,
+      "keys": [
+        "a/b",
+        "a_b",
+        "../escape",
+        "ключ",
+        "UPPER.case-mixed_123",
+        "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
+      ],
+      "sourceFile": "awkward-keys-input.env"
+    }
+  },
+  "updated": "2026-08-19T19:59:53.553Z"
+}

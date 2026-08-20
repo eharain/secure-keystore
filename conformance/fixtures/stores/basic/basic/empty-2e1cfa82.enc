@@ -1,0 +1,8 @@
+{
+  "salt": "f0f2b157ba6603eebcb811846603e61360f02461f95f78b554e4bd68b2ab0c3a",
+  "data": {
+    "iv": "80a64fee32ee1d3fb6f640d8",
+    "authTag": "f3260f7aa0db63095419bf71ac5a0f69",
+    "data": ""
+  }
+}

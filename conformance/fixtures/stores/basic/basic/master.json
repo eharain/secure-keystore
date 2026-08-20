@@ -1,0 +1,56 @@
+{
+  "version": "3.0",
+  "created": "2026-08-19T19:59:53.161Z",
+  "salt": "5861a7385952af21b5a73d9442d395e6f741c19415932594fc3d9038ec9087c7",
+  "iterations": 10000,
+  "master": {
+    "iv": "e9fa66b12278fa2d76a4e733",
+    "authTag": "836d8cfe0fcd74009db7971161254c4b",
+    "data": "bb860b58cb8c7c55ff6851926cf97a7c24d466f2d764"
+  },
+  "entries": [
+    {
+      "key": "api_key",
+      "file": "api_key-2e9bc6c9.enc"
+    },
+    {
+      "key": "empty",
+      "file": "empty-2e1cfa82.enc"
+    },
+    {
+      "key": "colons",
+      "file": "colons-12114822.enc"
+    },
+    {
+      "key": "delimited",
+      "file": "delimited-0f70b80e.enc"
+    },
+    {
+      "key": "unicode",
+      "file": "unicode-2fcf76a4.enc"
+    },
+    {
+      "key": "newlines",
+      "file": "newlines-3f7e37d3.enc"
+    },
+    {
+      "key": "json_ish",
+      "file": "json_ish-1bb87bee.enc"
+    },
+    {
+      "key": "long",
+      "file": "long-fc66f021.enc"
+    },
+    {
+      "key": "looks_like_token",
+      "file": "looks_like_token-39cee5bd.enc"
+    },
+    {
+      "key": "spaces",
+      "file": "spaces-ff6f0e9a.enc"
+    }
+  ],
+  "sourceFile": "basic-input.env",
+  "totalKeys": 10,
+  "updated": "2026-08-19T19:59:53.371Z"
+}

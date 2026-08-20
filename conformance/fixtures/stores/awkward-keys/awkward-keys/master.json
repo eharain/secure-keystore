@@ -1,0 +1,40 @@
+{
+  "version": "3.0",
+  "created": "2026-08-19T19:59:53.407Z",
+  "salt": "6ab5d6fd6d80d03e65a3772aec17e8fa997b04071eea59884f413b46254103b1",
+  "iterations": 10000,
+  "master": {
+    "iv": "762ff4277b245292ef176ff8",
+    "authTag": "b745378f22db68310228a4f04840c7f5",
+    "data": "c838abfb1ba713a519bfc7e83b3363a877554c033452"
+  },
+  "entries": [
+    {
+      "key": "a/b",
+      "file": "a_b-c14cddc0.enc"
+    },
+    {
+      "key": "a_b",
+      "file": "a_b-648fa9b3.enc"
+    },
+    {
+      "key": "../escape",
+      "file": ".._escape-1ba7343c.enc"
+    },
+    {
+      "key": "ключ",
+      "file": "________-1de36a32.enc"
+    },
+    {
+      "key": "UPPER.case-mixed_123",
+      "file": "UPPER.case-mixed_123-c8ef0405.enc"
+    },
+    {
+      "key": "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk",
+      "file": "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk-66edbde8.enc"
+    }
+  ],
+  "sourceFile": "awkward-keys-input.env",
+  "totalKeys": 6,
+  "updated": "2026-08-19T19:59:53.551Z"
+}

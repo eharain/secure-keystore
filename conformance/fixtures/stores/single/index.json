@@ -1,0 +1,14 @@
+{
+  "stores": {
+    "single": {
+      "version": "3.0",
+      "created": "2026-08-19T19:59:53.629Z",
+      "totalKeys": 1,
+      "keys": [
+        "only_key"
+      ],
+      "sourceFile": "single-input.env"
+    }
+  },
+  "updated": "2026-08-19T19:59:53.632Z"
+}
