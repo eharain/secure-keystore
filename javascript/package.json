@@ -1,0 +1,90 @@
+{
+  "name": "@tech-style/secure-keystore",
+  "version": "3.0.0",
+  "description": "Encrypted secrets at rest for Node.js, with no service to run. Two-layer AES-256-GCM encryption over PBKDF2-SHA256: a user key unlocks a per-store master key, and the master key unlocks each value under its own salt. Zero dependencies, a CLI, and stateless encrypt/decrypt for values you store yourself.",
+  "license": "MIT",
+  "author": {
+    "name": "Ejaz Hussain Arain",
+    "email": "hello@tech-style.co",
+    "url": "https://tech-style.co/"
+  },
+  "contributors": [
+    {
+      "name": "Tech Style Ltd",
+      "email": "hello@tech-style.co",
+      "url": "https://tech-style.co/"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eharain/secure-keystore.git",
+    "directory": "javascript"
+  },
+  "bugs": {
+    "url": "https://github.com/eharain/secure-keystore/issues",
+    "email": "hello@tech-style.co"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "homepage": "https://tech-style.co/product-secure-keystore.html",
+  "funding": "https://tech-style.co/",
+  "keywords": [
+    "encryption",
+    "secrets",
+    "secret-management",
+    "keystore",
+    "key-store",
+    "credentials",
+    "vault",
+    "aes-256-gcm",
+    "pbkdf2",
+    "authenticated-encryption",
+    "encrypt",
+    "decrypt",
+    "dotenv",
+    "env",
+    "environment-variables",
+    "configuration",
+    "config",
+    "api-keys",
+    "encryption-at-rest",
+    "cli",
+    "zero-dependencies",
+    "nodejs",
+    "typescript",
+    "devops",
+    "ci-cd"
+  ],
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "require": "./src/index.js",
+      "default": "./src/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "secure-keystore": "./bin/cli.js"
+  },
+  "files": [
+    "src/",
+    "bin/",
+    "README.md",
+    "usage.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "test": "node --test \"tests/**/*.test.js\"",
+    "lint": "node --check src/index.js && node --check bin/cli.js",
+    "prepublishOnly": "npm test"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
