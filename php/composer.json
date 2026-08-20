@@ -1,0 +1,69 @@
+{
+  "name": "tech-style/secure-keystore",
+  "description": "Encrypted secrets at rest for PHP, with no service to run. Two-layer AES-256-GCM over PBKDF2-SHA256 and HKDF-SHA256, with a documented cross-language format and no dependencies.",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "encryption",
+    "secrets",
+    "secret-management",
+    "keystore",
+    "credentials",
+    "vault",
+    "aes-gcm",
+    "pbkdf2",
+    "hkdf",
+    "dotenv",
+    "configuration",
+    "encryption-at-rest",
+    "devops",
+    "laravel",
+    "cli"
+  ],
+  "homepage": "https://tech-style.co/",
+  "authors": [
+    {
+      "name": "Ejaz Hussain Arain",
+      "email": "hello@tech-style.co",
+      "homepage": "https://tech-style.co/"
+    },
+    {
+      "name": "Tech Style Ltd",
+      "email": "hello@tech-style.co",
+      "homepage": "https://tech-style.co/",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/eharain/secure-keystore/issues",
+    "source": "https://github.com/eharain/secure-keystore/tree/main/php"
+  },
+  "require": {
+    "php": ">=8.1",
+    "ext-openssl": "*",
+    "ext-json": "*",
+    "ext-hash": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "TechStyle\\SecureKeystore\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "TechStyle\\SecureKeystore\\Tests\\": "tests/"
+    }
+  },
+  "bin": [
+    "bin/secure-keystore"
+  ],
+  "scripts": {
+    "test": "phpunit"
+  },
+  "config": {
+    "sort-packages": true
+  }
+}
