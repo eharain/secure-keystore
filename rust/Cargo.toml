@@ -1,0 +1,33 @@
+[package]
+name = "secure-keystore"
+version = "1.0.0"
+edition = "2021"
+rust-version = "1.75"
+description = "Encrypted secrets at rest, with no service to run. Two-layer AES-256-GCM over PBKDF2-SHA256 and HKDF-SHA256, with a documented cross-language format."
+license = "MIT"
+repository = "https://github.com/eharain/secure-keystore"
+homepage = "https://tech-style.co/"
+documentation = "https://docs.rs/secure-keystore"
+readme = "README.md"
+keywords = ["encryption", "secrets", "keystore", "aes-gcm", "credentials"]
+categories = ["cryptography", "command-line-utilities", "config"]
+authors = ["Ejaz Hussain Arain <hello@tech-style.co>"]
+exclude = ["/tests/fixtures"]
+
+[dependencies]
+aes-gcm = "0.10"
+hkdf = "0.12"
+hex = "0.4"
+pbkdf2 = { version = "0.12", default-features = false, features = ["hmac"] }
+rand = "0.8"
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+sha2 = "0.10"
+
+[[bin]]
+name = "secure-keystore"
+path = "src/bin/secure-keystore.rs"
+
+[profile.release]
+lto = true
+strip = true
