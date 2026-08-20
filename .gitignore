@@ -1,27 +1,88 @@
-# Dependencies
-node_modules/
-
-# Runtime keystore data and secrets — never commit these.
-# (Anchored to repo root so the sample files under examples/ are still tracked.)
+# ── Secrets and runtime data ─────────────────────────────────────────────────
+#
+# The one category in this repository that matters more than build output. A
+# keystore directory holds encrypted values, but a plaintext keys file holds the
+# real thing - and the whole point of the library is that neither ends up in a
+# commit.
+#
+# Not anchored to the root: a keystore written while running an example under
+# javascript/ or python/ must be ignored there too.
 .keystore/
-.keystore-target/
-/keys.txt
-/keys.env
-/keys.json
+.keystore-*/
 *.skb
 *-backup-*.tar
 backups/
 
-# Encrypted store files generated at runtime
-.keystore/**/*.enc
+# Plaintext input files, anchored to the root and to each implementation, so the
+# deliberately committed samples under */examples/ stay tracked.
+/keys.txt
+/keys.env
+/keys.json
+/*/keys.txt
+/*/keys.env
+/*/keys.json
 
-# Test artifacts
-test-temp/
-
-# npm auth (token is read from the NPM_TOKEN environment variable)
+# ── JavaScript ───────────────────────────────────────────────────────────────
+node_modules/
+*/node_modules/
+javascript/dist/
+npm-debug.log*
+# npm auth. The publish token is read from the NPM_TOKEN environment variable.
 .npmrc
 
-# Logs / OS files
-*.log
+# ── .NET ─────────────────────────────────────────────────────────────────────
+# Scoped to dotnet/, because javascript/bin holds the CLI entry point and is
+# meant to be committed.
+dotnet/**/bin/
+dotnet/**/obj/
+dotnet/**/TestResults/
+*.user
+
+# ── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+python/build/
+python/dist/
+python/.venv/
+python/*.egg-info/
+# An editable install writes its metadata beside the package.
+python/src/*.egg-info/
+*.egg-link
+.pytest_cache/
+.ruff_cache/
+
+# ── PHP ──────────────────────────────────────────────────────────────────────
+# composer.lock is not committed: this is a library, and the lock file of a
+# library binds nobody.
+php/vendor/
+php/composer.lock
+php/.phpunit.cache/
+.phpunit.result.cache
+
+# ── Go ───────────────────────────────────────────────────────────────────────
+go/secure-keystore
+go/secure-keystore.exe
+go/**/testdata/fuzz/
+go/**/*.test
+go/coverage.out
+
+# ── Rust ─────────────────────────────────────────────────────────────────────
+# Cargo.lock is not committed, for the same reason as composer.lock.
+rust/target/
+rust/Cargo.lock
+rust/fuzz/target/
+rust/fuzz/corpus/
+rust/fuzz/artifacts/
+
+# ── Test artifacts ───────────────────────────────────────────────────────────
+# Tests write to the system temp directory, so this only catches the older
+# suites and anything run by hand.
+test-temp/
+coverage/
+
+# ── Editor and OS noise ──────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/
+*.log
