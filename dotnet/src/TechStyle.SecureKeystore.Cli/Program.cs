@@ -363,5 +363,5 @@ internal sealed class Flags
 /// <summary>The CLI's own version, which tracks the library's.</summary>
 internal static class CliVersion
 {
-    public const string Value = "1.0.0";
+    public const string Value = "3.0.0";
 }

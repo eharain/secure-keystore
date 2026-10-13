@@ -3,17 +3,17 @@
 **Encrypted secrets at rest, with no service to run.** No dependencies at all —
 `crypto/aes`, `crypto/pbkdf2` and `crypto/hkdf` are the whole of it.
 
-[![Go reference](https://pkg.go.dev/badge/github.com/eharain/secure-keystore/go.svg)](https://pkg.go.dev/github.com/eharain/secure-keystore/go)
+[![Go reference](https://pkg.go.dev/badge/github.com/eharain/secure-keystore/go/v3.svg)](https://pkg.go.dev/github.com/eharain/secure-keystore/go/v3)
 [![Go version](https://img.shields.io/badge/go-1.24%2B-00ADD8.svg)](https://go.dev/dl/)
 [![licence](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE)
 [![format](https://img.shields.io/badge/format-3.0-6366f1.svg)](../SPEC.md)
 
 ```bash
-go get github.com/eharain/secure-keystore/go
+go get github.com/eharain/secure-keystore/go/v3
 ```
 
 ```go
-import ks "github.com/eharain/secure-keystore/go"
+import ks "github.com/eharain/secure-keystore/go/v3"
 
 store, err := ks.New()
 apiKey, err := store.Get("api_key", os.Getenv("USER_KEY"), "production")
@@ -22,7 +22,7 @@ apiKey, err := store.Get("api_key", os.Getenv("USER_KEY"), "production")
 The command line installs on its own:
 
 ```bash
-go install github.com/eharain/secure-keystore/go/cmd/secure-keystore@latest
+go install github.com/eharain/secure-keystore/go/v3/cmd/secure-keystore@latest
 secure-keystore get api_key "$USER_KEY" production
 ```
 
@@ -183,7 +183,7 @@ are not serialised by this package.
 ## The CLI
 
 ```bash
-go install github.com/eharain/secure-keystore/go/cmd/secure-keystore@latest
+go install github.com/eharain/secure-keystore/go/v3/cmd/secure-keystore@latest
 ```
 
 ```bash

@@ -6,9 +6,9 @@ project uses [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
 The **package version** and the **store format version** are separate numbers and
 move at different speeds — see [SPEC.md §11](../SPEC.md#11-versioning). This is
-package 1.0.0, writing store format 3.0.
+package 3.0.0, writing store format 3.0.
 
-## [1.0.0] - 2026-08-20
+## [3.0.0] - 2026-10-13
 
 First release of the PHP implementation.
 
@@ -70,4 +70,4 @@ implementation produced.
 - `openssl_decrypt` returns `false` rather than throwing; every result is checked, so a wrong key becomes `BAD_USER_KEY` rather than an empty string a caller might mistake for a value.
 - The whole `master.json` document is kept, so unknown fields survive a rewrite.
 
-[1.0.0]: https://github.com/eharain/secure-keystore/releases/tag/php%2Fv1.0.0
+[3.0.0]: https://github.com/eharain/secure-keystore/releases/tag/php%2Fv3.0.0

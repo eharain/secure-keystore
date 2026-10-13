@@ -50,7 +50,7 @@ from .token import decrypt_value, encrypt_value, is_encrypted_value, token_versi
 
 #: The version of this implementation, which is not the same thing as the
 #: version of the store format (:data:`STORE_FORMAT_VERSION`).
-__version__ = "1.0.0"
+__version__ = "3.0.0"
 
 #: What this build actually does, in one mapping, so that a caller who has to
 #: write it down in a compliance document does not have to read the source.

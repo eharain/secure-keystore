@@ -1,6 +1,6 @@
 // Command secure-keystore is the command line for the secure-keystore format.
 //
-//	go install github.com/eharain/secure-keystore/go/cmd/secure-keystore@latest
+//	go install github.com/eharain/secure-keystore/go/v3/cmd/secure-keystore@latest
 //
 // The verbs, the error codes and the --json output match every other
 // implementation, so a shell script should not be able to tell which one it is
@@ -17,7 +17,7 @@ import (
 	"strconv"
 	"strings"
 
-	ks "github.com/eharain/secure-keystore/go"
+	ks "github.com/eharain/secure-keystore/go/v3"
 )
 
 const name = "secure-keystore"

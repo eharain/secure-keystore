@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	ks "github.com/eharain/secure-keystore/go"
+	ks "github.com/eharain/secure-keystore/go/v3"
 )
 
 // Tests written against the behaviour, not against the JavaScript. Where a

@@ -6,9 +6,9 @@ project uses [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
 The **package version** and the **store format version** are separate numbers and
 move at different speeds — see [SPEC.md §11](../SPEC.md#11-versioning). This is
-package 1.0.0, writing store format 3.0.
+package 3.0.0, writing store format 3.0.
 
-## [1.0.0] - 2026-08-20
+## [3.0.0] - 2026-10-13
 
 First release of the Rust implementation.
 
@@ -62,4 +62,4 @@ implementation produced.
 - `#![forbid(unsafe_code)]`, and nothing panics on bad input — every fallible call returns `Result`.
 - No date dependency: the one timestamp uses Howard Hinnant s `civil_from_days`, twelve lines, rather than pulling in `chrono`.
 
-[1.0.0]: https://github.com/eharain/secure-keystore/releases/tag/rust%2Fv1.0.0
+[3.0.0]: https://github.com/eharain/secure-keystore/releases/tag/rust%2Fv3.0.0

@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	ks "github.com/eharain/secure-keystore/go"
+	ks "github.com/eharain/secure-keystore/go/v3"
 )
 
 // The shared corpus, run against this implementation.

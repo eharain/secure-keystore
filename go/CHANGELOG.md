@@ -6,11 +6,12 @@ project uses [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
 The **package version** and the **store format version** are separate numbers and
 move at different speeds — see [SPEC.md §11](../SPEC.md#11-versioning). This is
-package 1.0.0, writing store format 3.0.
+package 3.0.0, writing store format 3.0.
 
-## [1.0.0] - 2026-08-20
+## [3.0.0] - 2026-10-13
 
-First release of the Go implementation.
+First release of the Go implementation. Go puts the major version in the import path, so the
+module is `github.com/eharain/secure-keystore/go/v3`.
 
 Written against [SPEC.md](../SPEC.md) rather than by reading another
 implementation — which is the rule that let six of them agree — and tested against
@@ -61,4 +62,4 @@ Verified: 25 tests pass, including the shared corpus, and it reads stores writte
 - `master.json` round-trips through a custom marshaller that preserves unknown fields, so a store written by a newer implementation is not silently downgraded.
 - Sentinel errors with `errors.Is` support, carrying the same codes as every other implementation.
 
-[1.0.0]: https://github.com/eharain/secure-keystore/releases/tag/go%2Fv1.0.0
+[3.0.0]: https://github.com/eharain/secure-keystore/releases/tag/go%2Fv3.0.0

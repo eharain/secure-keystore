@@ -88,7 +88,7 @@ where all six write and all six read every one of the results.
 | Language | Registry | Package | Install |
 |---|---|---|---|
 | [**JavaScript**](javascript/) | npm | `@tech-style/secure-keystore` | `npm i @tech-style/secure-keystore` |
-| [**Go**](go/) | Go modules | `github.com/eharain/secure-keystore/go` | `go get github.com/eharain/secure-keystore/go` |
+| [**Go**](go/) | Go modules | `github.com/eharain/secure-keystore/go/v3` | `go get github.com/eharain/secure-keystore/go/v3` |
 | [**.NET**](dotnet/) | NuGet | `TechStyle.SecureKeystore` | `dotnet add package TechStyle.SecureKeystore` |
 | [**Python**](python/) | PyPI | `secure-keystore` | `pip install secure-keystore` |
 | [**PHP**](php/) | Packagist | `tech-style/secure-keystore` | `composer require tech-style/secure-keystore` |

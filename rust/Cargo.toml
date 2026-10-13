@@ -1,6 +1,6 @@
 [package]
 name = "secure-keystore"
-version = "1.0.0"
+version = "3.0.0"
 edition = "2021"
 rust-version = "1.75"
 description = "Encrypted secrets at rest, with no service to run. Two-layer AES-256-GCM over PBKDF2-SHA256 and HKDF-SHA256, with a documented cross-language format."

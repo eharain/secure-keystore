@@ -46,4 +46,4 @@ package securekeystore
 
 // Version is the version of this implementation, which is not the same thing as
 // the version of the store format ([StoreFormatVersion]).
-const Version = "1.0.0"
+const Version = "3.0.0"

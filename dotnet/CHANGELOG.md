@@ -6,9 +6,9 @@ project uses [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
 The **package version** and the **store format version** are separate numbers and
 move at different speeds — see [SPEC.md §11](../SPEC.md#11-versioning). This is
-package 1.0.0, writing store format 3.0.
+package 3.0.0, writing store format 3.0.
 
-## [1.0.0] - 2026-08-20
+## [3.0.0] - 2026-10-13
 
 First release of the .NET implementation.
 
@@ -72,4 +72,4 @@ Verified: 132 tests pass, including the shared corpus, the GCM cross-check descr
 - `[JsonPropertyName]` on every field, because `System.Text.Json` neither matches nor emits camelCase by default — without it a .NET store would carry `Iv` where everyone else writes `iv`.
 - `[JsonExtensionData]` so unknown fields survive a rewrite, and `UnsafeRelaxedJsonEscaping` so a non-ASCII key name is written as itself rather than as `\uXXXX`.
 
-[1.0.0]: https://github.com/eharain/secure-keystore/releases/tag/dotnet%2Fv1.0.0
+[3.0.0]: https://github.com/eharain/secure-keystore/releases/tag/dotnet%2Fv3.0.0

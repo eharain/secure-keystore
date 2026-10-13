@@ -92,7 +92,7 @@ is migrated, so a store is never half one format and half the other.
 | Language | Registry | Package | CLI | Own suite |
 |---|---|---|---|---|
 | **JavaScript** | npm | `@tech-style/secure-keystore` | ✅ | 84 tests |
-| **Go** | Go modules | `github.com/eharain/secure-keystore/go` | ✅ | 25 tests |
+| **Go** | Go modules | `github.com/eharain/secure-keystore/go/v3` | ✅ | 25 tests |
 | **.NET** | NuGet | `TechStyle.SecureKeystore` | ✅ | 132 tests |
 | **Python** | PyPI | `secure-keystore` | ✅ | 28 tests |
 | **PHP** | Packagist | `tech-style/secure-keystore` | ✅ | 8 tests, 112 assertions |
