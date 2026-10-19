@@ -31,6 +31,12 @@ const apiKey = new SecureKeystore().get('api_key', process.env.USER_KEY, 'produc
 
 Deploying is copying a directory. There is nothing to start.
 
+## Video
+
+[![Secure Keystore: encrypted secrets at rest, with no service to run](https://raw.githubusercontent.com/eharain/secure-keystore/main/docs/media/video-thumbnail.jpg)](https://www.youtube.com/watch?v=ai-yHqZS_G4)
+
+A 0:59 introduction on YouTube, with English captions.
+
 ---
 
 ## How it works

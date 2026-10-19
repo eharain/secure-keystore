@@ -35,6 +35,12 @@ implementation produced.
 **Go 1.24 or later**, because `crypto/pbkdf2` and `crypto/hkdf` landed there. No
 third-party dependency, and no `go.sum`.
 
+## Video
+
+[![Secure Keystore: encrypted secrets at rest, with no service to run](https://raw.githubusercontent.com/eharain/secure-keystore/main/docs/media/video-thumbnail.jpg)](https://www.youtube.com/watch?v=ai-yHqZS_G4)
+
+A 0:59 introduction on YouTube, with English captions.
+
 ---
 
 ## Two ways in

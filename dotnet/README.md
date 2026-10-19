@@ -28,6 +28,12 @@ against a corpus the JavaScript implementation produced.
 
 **.NET 8 or later**, the lowest version with both `HKDF` and `AesGcm`.
 
+## Video
+
+[![Secure Keystore: encrypted secrets at rest, with no service to run](https://raw.githubusercontent.com/eharain/secure-keystore/main/docs/media/video-thumbnail.jpg)](https://www.youtube.com/watch?v=ai-yHqZS_G4)
+
+A 0:59 introduction on YouTube, with English captions.
+
 ---
 
 ## Two ways in
