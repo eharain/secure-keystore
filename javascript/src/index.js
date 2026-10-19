@@ -46,7 +46,7 @@ const {
  * (VALUE_TOKEN_PREFIX). A release may bump this and leave both of those alone -
  * and usually does.
  */
-const VERSION = '3.0.0';
+const VERSION = '3.0.1';
 
 /**
  * ALGORITHMS describes what this build actually does, in one object, so that a

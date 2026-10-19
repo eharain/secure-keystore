@@ -1,6 +1,6 @@
 {
   "name": "@tech-style/secure-keystore",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Encrypted secrets at rest for Node.js, with no service to run. Two-layer AES-256-GCM encryption over PBKDF2-SHA256: a user key unlocks a per-store master key, and the master key unlocks each value under its own salt. Zero dependencies, a CLI, and stateless encrypt/decrypt for values you store yourself.",
   "license": "MIT",
   "author": {

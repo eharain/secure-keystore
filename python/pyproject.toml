@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "secure-keystore"
-version = "3.0.0"
+version = "3.0.1"
 description = "Encrypted secrets at rest for Python, with no service to run. Two-layer AES-256-GCM over PBKDF2-SHA256 and HKDF-SHA256, with a documented cross-language format."
 readme = "README.md"
 license = { text = "MIT" }

@@ -6,7 +6,14 @@ project uses [semantic versioning](https://semver.org/spec/v2.0.0.html).
 
 The **package version** and the **store format version** are separate numbers and
 move at different speeds — see [SPEC.md §11](../SPEC.md#11-versioning). This is
-package 3.0.0, writing store format 3.0.
+package 3.0.1, writing store format 3.0.
+
+## [3.0.1] - 2026-10-20
+
+### Changed
+
+- The README shows the introduction video. No change in behaviour; the store
+  format is still 3.0.
 
 ## [3.0.0] - 2026-10-13
 
